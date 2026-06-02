@@ -20,6 +20,16 @@ The step definitions are provided in a JSON file. See `tests/step_defs/` for exa
 
 Run with `--display`, after doing `uv add graphviz` to install the graph visualization library. This can help understand how the tool combines the runs.
 
+The files output will be `reference_graph.png` and `checker_graph.png`.
+
+The graphs will look similar to these extracted from `tests/bakery_complex.test`:
+
+
+| Bakery Graph 1 | Bakery Graph 2 |
+| --- | --- |
+| ![Bakery Graph 1](docs/bakery_g1.png) | ![Bakery Graph 2](docs/bakery_g2.png) |
+
+
 ## Tests
 
 To run the tests, use `uv run tester.py`. To pause on a failing test and display the graphs, use `uv run tester.py --display-failed`. The tests are located in the `tests/` directory. Each test consists of a step definition file in the first line, the expected result in the second line and the two runs (reference and checked) in the two following lines. 
