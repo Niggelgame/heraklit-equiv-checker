@@ -8,13 +8,87 @@ This tool checks whether one Heraklit run is a prefix of or equivalent to anothe
 
 The tool requires step definitions in the format described below, and two runs to compare. It will then check whether the second run is a prefix of the first.
 
+Use [uv](https://docs.astral.sh/uv/getting-started/installation/) to run the scripts.
+
 ```
 uv run checker.py --step-defs <step_definitions_file> --reference-run <reference_run_file> --checked-run <checked_run_file>
 ```
 
+The checker might output warnings. The last output will be whether there was a match or not, previous output might hint as to why matching failed.
+
+<details>
+
+<summary>Initial step <> is not contained in the reference graph</summary>
+
+This message before a `no match` means that there was an additional unconnected step that did not appear in the reference run.
+
+---
+
+</details>
+
+<details>
+
+<summary>Step <> is not defined in the step definitions</summary>
+
+A run contains a step that has not been defined in the step file definition. 
+
+Step names should not contain any space characters (as they are used to split the run inputs). 
+
+---
+
+</details>
+
+<details>
+<summary>Warning: place <> is a left place of step but is not consumed by any step</summary>
+
+This warning hints at steps that have unconnected left places. This is not concerning if these places can be considered initial places. 
+
+If there are too many free left places, it might be a hint that the steps are not modelled correctly or the runs do not fit the step structure.
+
+---
+
+</details>
+
 ## Step Definition Format
 
 The step definitions are provided in a JSON file. See `tests/step_defs/` for example files.
+
+Sample file:
+
+```json
+[
+    {
+        "name": "bake",
+        "left_places": ["ready to bake"],
+        "right_places": ["on counter"]
+    },
+    {
+        "name": "supply_to_aide",
+        "left_places": ["on counter", "aide free"],
+        "right_places": ["ready to bake", "aide busy"]
+    },
+    {
+        "name": "move_to_shop",
+        "left_places": ["aide busy", "shelf empty"],
+        "right_places": ["aide free", "on shelf"]
+    },
+    {
+        "name": "sell",
+        "left_places": ["on shelf"],
+        "right_places": ["shelf empty"]
+    }
+]
+```
+
+## Run File Format
+
+A run consists on a series of step names, separated by spaces.
+
+A run of the previous steps could be
+
+```
+bake supply_to_aide move_to_shop sell bake supply_to_aide bake move_to_shop sell supply_to_aide move_to_shop sell
+```
 
 ## Displaying the extracted run graphs
 
