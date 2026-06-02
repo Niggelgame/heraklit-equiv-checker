@@ -1,0 +1,30 @@
+[
+    {
+        "name": "A",
+        "left_places": ["go"],
+        "right_places": ["b_inv", "c"]
+    },
+    {
+        "type": "InvisibleStep",
+        "invisible_prefix_step": {
+            "name": "inv_B",
+            "left_places": ["b_inv"],
+            "right_places": ["b"]
+        },
+        "step": {
+            "name": "B",
+            "left_places": ["b"],
+            "right_places": ["d_b"]
+        }
+    },
+    {
+        "name": "C",
+        "left_places": ["c"],
+        "right_places": ["d_c"]
+    },
+    {
+        "name": "D",
+        "left_places": ["d_b", "d_c"],
+        "right_places": ["go"]
+    }
+]

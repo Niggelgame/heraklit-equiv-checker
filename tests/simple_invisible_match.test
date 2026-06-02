@@ -1,0 +1,4 @@
+step_defs/simple_with_invisible.json
+match
+A B C D
+A C B D

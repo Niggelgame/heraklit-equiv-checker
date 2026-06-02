@@ -1,0 +1,6 @@
+check_graph
+reference_graph
+check_graph.png
+reference_graph.png
+__pycache__/**
+*.pyc
