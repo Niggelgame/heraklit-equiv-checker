@@ -1,0 +1,22 @@
+[
+    {
+        "name": "bake",
+        "left_places": ["ready to bake"],
+        "right_places": ["on counter"]
+    },
+    {
+        "name": "supply_to_aide",
+        "left_places": ["on counter", "aide free"],
+        "right_places": ["ready to bake", "aide busy"]
+    },
+    {
+        "name": "move_to_shop",
+        "left_places": ["aide busy", "shelf empty"],
+        "right_places": ["aide free", "on shelf"]
+    },
+    {
+        "name": "sell",
+        "left_places": ["on shelf"],
+        "right_places": ["shelf empty"]
+    }
+]

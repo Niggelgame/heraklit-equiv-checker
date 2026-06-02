@@ -29,6 +29,9 @@ if __name__ == "__main__":
     # flag whether to display and pause the graphs on failure
     argparse = argparse.ArgumentParser(description="Run equivalence tests for Heraklit runs")
     argparse.add_argument("--display-failed", action="store_true", help="Display the graphs of the runs and pause after failed test")
+    argparse.add_argument("--run-only", help="Only run the test specified")
+
+
     args = argparse.parse_args()
 
     TESTS_DIR = "tests"
@@ -37,6 +40,9 @@ if __name__ == "__main__":
     print("Test files found:")
     for f in test_files:
         print(f)
+    
+    if not args.run_only is None:
+        test_files = filter(lambda a: args.run_only in a, test_files)
     
     print(f"\nRunning tests...")
 

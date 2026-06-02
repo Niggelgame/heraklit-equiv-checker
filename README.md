@@ -26,6 +26,8 @@ To run the tests, use `uv run tester.py`. To pause on a failing test and display
 
 The expected result can be `match`, `no match` or `error`. The first two indicate whether the second run is a prefix of the first, while `error` indicates that the tool should raise an error, for example due to invalid step definitions.
 
+To only run specific tests, run with `--run-only <test_name_element>`, which will run all tests with file names containing `<test_name_element>`. (This in combination with `--display-failed` can be used to see the graphs of a single test without failure as a file)
+
 ## Use as a library
 
 The functionality is contained in the `checker.py` file, which can be imported and used in other Python code. The main function to use is `check_equivalence_step_file`, which takes the two runs and the path to the step definitions file as an argument and returns whether the first run is a prefix of the second.
