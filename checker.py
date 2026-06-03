@@ -116,6 +116,7 @@ def display_graph(graph):
     # plot the graph using graphviz, with the step names as labels and the edges as arrows
     from graphviz import Digraph
     dot = Digraph()
+    dot.attr('node', shape='rect')
     graph, initial_steps = graph
     for index, (step, next_steps) in graph.items():
         dot.node(str(index), step.name)
