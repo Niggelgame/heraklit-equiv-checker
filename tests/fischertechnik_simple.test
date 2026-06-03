@@ -1,0 +1,4 @@
+step_defs/fischertechnik_steps.json
+match
+AGV move DPS to MILL, MILL Pick, MILL Picked, AGV move MILL to DRILL, MILL Mill, AGV move DRILL to MILL, MILL Milled, MILL Drop, MILL Dropped, AGV move MILL to DRILL
+AGV move DPS to MILL, MILL Pick, MILL Picked, MILL Mill, AGV move MILL to DRILL, MILL Milled, AGV move DRILL to MILL, MILL Drop, MILL Dropped, AGV move MILL to DRILL

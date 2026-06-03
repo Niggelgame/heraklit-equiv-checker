@@ -1,0 +1,731 @@
+[
+    {
+        "name": "AGV move HBW to DPS",
+        "left_places": [
+            "AGV at HBW"
+        ],
+        "right_places": [
+            "AGV at DPS"
+        ]
+    },
+    {
+        "name": "AGV move HBW to MILL",
+        "left_places": [
+            "AGV at HBW"
+        ],
+        "right_places": [
+            "AGV at MILL"
+        ]
+    },
+    {
+        "name": "AGV move HBW to DRILL",
+        "left_places": [
+            "AGV at HBW"
+        ],
+        "right_places": [
+            "AGV at DRILL"
+        ]
+    },
+    {
+        "name": "AGV move HBW to AIQS",
+        "left_places": [
+            "AGV at HBW"
+        ],
+        "right_places": [
+            "AGV at AIQS"
+        ]
+    },
+    {
+        "name": "AGV move DPS to HBW",
+        "left_places": [
+            "AGV at DPS"
+        ],
+        "right_places": [
+            "AGV at HBW"
+        ]
+    },
+    {
+        "name": "AGV move DPS to MILL",
+        "left_places": [
+            "AGV at DPS"
+        ],
+        "right_places": [
+            "AGV at MILL"
+        ]
+    },
+    {
+        "name": "AGV move DPS to DRILL",
+        "left_places": [
+            "AGV at DPS"
+        ],
+        "right_places": [
+            "AGV at DRILL"
+        ]
+    },
+    {
+        "name": "AGV move DPS to AIQS",
+        "left_places": [
+            "AGV at DPS"
+        ],
+        "right_places": [
+            "AGV at AIQS"
+        ]
+    },
+    {
+        "name": "AGV move MILL to HBW",
+        "left_places": [
+            "AGV at MILL"
+        ],
+        "right_places": [
+            "AGV at HBW"
+        ]
+    },
+    {
+        "name": "AGV move MILL to DPS",
+        "left_places": [
+            "AGV at MILL"
+        ],
+        "right_places": [
+            "AGV at DPS"
+        ]
+    },
+    {
+        "name": "AGV move MILL to DRILL",
+        "left_places": [
+            "AGV at MILL"
+        ],
+        "right_places": [
+            "AGV at DRILL"
+        ]
+    },
+    {
+        "name": "AGV move MILL to AIQS",
+        "left_places": [
+            "AGV at MILL"
+        ],
+        "right_places": [
+            "AGV at AIQS"
+        ]
+    },
+    {
+        "name": "AGV move DRILL to HBW",
+        "left_places": [
+            "AGV at DRILL"
+        ],
+        "right_places": [
+            "AGV at HBW"
+        ]
+    },
+    {
+        "name": "AGV move DRILL to DPS",
+        "left_places": [
+            "AGV at DRILL"
+        ],
+        "right_places": [
+            "AGV at DPS"
+        ]
+    },
+    {
+        "name": "AGV move DRILL to MILL",
+        "left_places": [
+            "AGV at DRILL"
+        ],
+        "right_places": [
+            "AGV at MILL"
+        ]
+    },
+    {
+        "name": "AGV move DRILL to AIQS",
+        "left_places": [
+            "AGV at DRILL"
+        ],
+        "right_places": [
+            "AGV at AIQS"
+        ]
+    },
+    {
+        "name": "AGV move AIQS to HBW",
+        "left_places": [
+            "AGV at AIQS"
+        ],
+        "right_places": [
+            "AGV at HBW"
+        ]
+    },
+    {
+        "name": "AGV move AIQS to DPS",
+        "left_places": [
+            "AGV at AIQS"
+        ],
+        "right_places": [
+            "AGV at DPS"
+        ]
+    },
+    {
+        "name": "AGV move AIQS to MILL",
+        "left_places": [
+            "AGV at AIQS"
+        ],
+        "right_places": [
+            "AGV at MILL"
+        ]
+    },
+    {
+        "name": "AGV move AIQS to DRILL",
+        "left_places": [
+            "AGV at AIQS"
+        ],
+        "right_places": [
+            "AGV at DRILL"
+        ]
+    },
+    {
+        "type": "InvisibleStep",
+        "invisible_prefix_step": {
+            "name": "Invisible start HBW Pick",
+            "left_places": [
+                "Next Module Ready"
+            ],
+            "right_places": [
+                "Start HBW Pick"
+            ]
+        },
+        "step": {
+            "name": "HBW Pick",
+            "left_places": [
+                "Start HBW Pick",
+                "AGV at HBW"
+            ],
+            "right_places": [
+                "HBW Picking"
+            ]
+        }
+    },
+    {
+        "type": "InvisibleStep",
+        "invisible_prefix_step": {
+            "name": "Invisible end HBW Picked",
+            "left_places": [
+                "HBW Picking"
+            ],
+            "right_places": [
+                "Finish HBW Pick",
+                "AGV at HBW"
+            ]
+        },
+        "step": {
+            "name": "HBW Picked",
+            "left_places": [
+                "Finish HBW Pick"
+            ],
+            "right_places": [
+                "Next Module Ready"
+            ]
+        }
+    },
+    {
+        "name": "HBW Pick Failed",
+        "left_places": [
+            "HBW Picking"
+        ],
+        "right_places": [
+            "Order Failed",
+            "AGV at HBW"
+        ]
+    },
+    {
+        "type": "InvisibleStep",
+        "invisible_prefix_step": {
+            "name": "Invisible start HBW Drop",
+            "left_places": [
+                "Next Module Ready"
+            ],
+            "right_places": [
+                "Start HBW Drop"
+            ]
+        },
+        "step": {
+            "name": "HBW Drop",
+            "left_places": [
+                "Start HBW Drop",
+                "AGV at HBW"
+            ],
+            "right_places": [
+                "HBW Dropping"
+            ]
+        }
+    },
+    {
+        "type": "InvisibleStep",
+        "invisible_prefix_step": {
+            "name": "Invisible end HBW Dropped",
+            "left_places": [
+                "HBW Dropping"
+            ],
+            "right_places": [
+                "Finish HBW Drop",
+                "AGV at HBW"
+            ]
+        },
+        "step": {
+            "name": "HBW Dropped",
+            "left_places": [
+                "Finish HBW Drop"
+            ],
+            "right_places": [
+                "Next Module Ready"
+            ]
+        }
+    },
+    {
+        "name": "HBW Drop Failed",
+        "left_places": [
+            "HBW Dropping"
+        ],
+        "right_places": [
+            "Order Failed",
+            "AGV at HBW"
+        ]
+    },
+    {
+        "type": "InvisibleStep",
+        "invisible_prefix_step": {
+            "name": "Invisible start DPS Pick",
+            "left_places": [
+                "Next Module Ready"
+            ],
+            "right_places": [
+                "Start DPS Pick"
+            ]
+        },
+        "step": {
+            "name": "DPS Pick",
+            "left_places": [
+                "Start DPS Pick",
+                "AGV at DPS"
+            ],
+            "right_places": [
+                "DPS Picking"
+            ]
+        }
+    },
+    {
+        "type": "InvisibleStep",
+        "invisible_prefix_step": {
+            "name": "Invisible end DPS Picked",
+            "left_places": [
+                "DPS Picking"
+            ],
+            "right_places": [
+                "Finish DPS Pick",
+                "AGV at DPS"
+            ]
+        },
+        "step": {
+            "name": "DPS Picked",
+            "left_places": [
+                "Finish DPS Pick"
+            ],
+            "right_places": [
+                "Next Module Ready"
+            ]
+        }
+    },
+    {
+        "name": "DPS Pick Failed",
+        "left_places": [
+            "DPS Picking"
+        ],
+        "right_places": [
+            "Order Failed",
+            "AGV at DPS"
+        ]
+    },
+    {
+        "type": "InvisibleStep",
+        "invisible_prefix_step": {
+            "name": "Invisible start DPS Drop",
+            "left_places": [
+                "Next Module Ready"
+            ],
+            "right_places": [
+                "Start DPS Drop"
+            ]
+        },
+        "step": {
+            "name": "DPS Drop",
+            "left_places": [
+                "Start DPS Drop",
+                "AGV at DPS"
+            ],
+            "right_places": [
+                "DPS Dropping"
+            ]
+        }
+    },
+    {
+        "type": "InvisibleStep",
+        "invisible_prefix_step": {
+            "name": "Invisible end DPS Dropped",
+            "left_places": [
+                "DPS Dropping"
+            ],
+            "right_places": [
+                "Finish DPS Drop",
+                "AGV at DPS"
+            ]
+        },
+        "step": {
+            "name": "DPS Dropped",
+            "left_places": [
+                "Finish DPS Drop"
+            ],
+            "right_places": [
+                "Next Module Ready"
+            ]
+        }
+    },
+    {
+        "name": "DPS Drop Failed",
+        "left_places": [
+            "DPS Dropping"
+        ],
+        "right_places": [
+            "Order Failed",
+            "AGV at DPS"
+        ]
+    },
+    {
+        "type": "InvisibleStep",
+        "invisible_prefix_step": {
+            "name": "Invisible start DRILL Pick",
+            "left_places": [
+                "Next Module Ready"
+            ],
+            "right_places": [
+                "Start DRILL Pick"
+            ]
+        },
+        "step": {
+            "name": "DRILL Pick",
+            "left_places": [
+                "Start DRILL Pick",
+                "AGV at DRILL"
+            ],
+            "right_places": [
+                "DRILL Picking"
+            ]
+        }
+    },
+    {
+        "name": "DRILL Picked",
+        "left_places": [
+            "DRILL Picking"
+        ],
+        "right_places": [
+            "Finish DRILL Pick",
+            "AGV at DRILL"
+        ]
+    },
+    {
+        "name": "DRILL Pick Failed",
+        "left_places": [
+            "DRILL Picking"
+        ],
+        "right_places": [
+            "Order Failed",
+            "AGV at DRILL"
+        ]
+    },
+    {
+        "name": "DRILL Drop",
+        "left_places": [
+            "Start DRILL Drop",
+            "AGV at DRILL"
+        ],
+        "right_places": [
+            "DRILL Dropping"
+        ]
+    },
+    {
+        "type": "InvisibleStep",
+        "invisible_prefix_step": {
+            "name": "Invisible end DRILL Dropped",
+            "left_places": [
+                "DRILL Dropping"
+            ],
+            "right_places": [
+                "Finish DRILL Drop",
+                "AGV at DRILL"
+            ]
+        },
+        "step": {
+            "name": "DRILL Dropped",
+            "left_places": [
+                "Finish DRILL Drop"
+            ],
+            "right_places": [
+                "Next Module Ready"
+            ]
+        }
+    },
+    {
+        "name": "DRILL Drop Failed",
+        "left_places": [
+            "DRILL Dropping"
+        ],
+        "right_places": [
+            "Order Failed",
+            "AGV at DRILL"
+        ]
+    },
+    {
+        "name": "DRILL Drill",
+        "left_places": [
+            "Finish DRILL Pick"
+        ],
+        "right_places": [
+            "DRILL Drilling"
+        ]
+    },
+    {
+        "name": "DRILL Drilled",
+        "left_places": [
+            "DRILL Drilling"
+        ],
+        "right_places": [
+            "Start DRILL Drop"
+        ]
+    },
+    {
+        "name": "DRILL Drill Failed",
+        "left_places": [
+            "DRILL Drilling"
+        ],
+        "right_places": [
+            "Order Failed"
+        ]
+    },
+    {
+        "type": "InvisibleStep",
+        "invisible_prefix_step": {
+            "name": "Invisible start MILL Pick",
+            "left_places": [
+                "Next Module Ready"
+            ],
+            "right_places": [
+                "Start MILL Pick"
+            ]
+        },
+        "step": {
+            "name": "MILL Pick",
+            "left_places": [
+                "Start MILL Pick",
+                "AGV at MILL"
+            ],
+            "right_places": [
+                "MILL Picking"
+            ]
+        }
+    },
+    {
+        "name": "MILL Picked",
+        "left_places": [
+            "MILL Picking"
+        ],
+        "right_places": [
+            "Finish MILL Pick",
+            "AGV at MILL"
+        ]
+    },
+    {
+        "name": "MILL Pick Failed",
+        "left_places": [
+            "MILL Picking"
+        ],
+        "right_places": [
+            "Order Failed",
+            "AGV at MILL"
+        ]
+    },
+    {
+        "name": "MILL Drop",
+        "left_places": [
+            "Start MILL Drop",
+            "AGV at MILL"
+        ],
+        "right_places": [
+            "MILL Dropping"
+        ]
+    },
+    {
+        "type": "InvisibleStep",
+        "invisible_prefix_step": {
+            "name": "Invisible end MILL Dropped",
+            "left_places": [
+                "MILL Dropping"
+            ],
+            "right_places": [
+                "Finish MILL Drop",
+                "AGV at MILL"
+            ]
+        },
+        "step": {
+            "name": "MILL Dropped",
+            "left_places": [
+                "Finish MILL Drop"
+            ],
+            "right_places": [
+                "Next Module Ready"
+            ]
+        }
+    },
+    {
+        "name": "MILL Drop Failed",
+        "left_places": [
+            "MILL Dropping"
+        ],
+        "right_places": [
+            "Order Failed",
+            "AGV at MILL"
+        ]
+    },
+    {
+        "name": "MILL Mill",
+        "left_places": [
+            "Finish MILL Pick"
+        ],
+        "right_places": [
+            "MILL Milling"
+        ]
+    },
+    {
+        "name": "MILL Milled",
+        "left_places": [
+            "MILL Milling"
+        ],
+        "right_places": [
+            "Start MILL Drop"
+        ]
+    },
+    {
+        "name": "MILL Mill Failed",
+        "left_places": [
+            "MILL Milling"
+        ],
+        "right_places": [
+            "Order Failed"
+        ]
+    },
+    {
+        "type": "InvisibleStep",
+        "invisible_prefix_step": {
+            "name": "Invisible start AIQS Pick",
+            "left_places": [
+                "Next Module Ready"
+            ],
+            "right_places": [
+                "Start AIQS Pick"
+            ]
+        },
+        "step": {
+            "name": "AIQS Pick",
+            "left_places": [
+                "Start AIQS Pick",
+                "AGV at AIQS"
+            ],
+            "right_places": [
+                "AIQS Picking"
+            ]
+        }
+    },
+    {
+        "name": "AIQS Picked",
+        "left_places": [
+            "AIQS Picking"
+        ],
+        "right_places": [
+            "Finish AIQS Pick",
+            "AGV at AIQS"
+        ]
+    },
+    {
+        "name": "AIQS Pick Failed",
+        "left_places": [
+            "AIQS Picking"
+        ],
+        "right_places": [
+            "Order Failed",
+            "AGV at AIQS"
+        ]
+    },
+    {
+        "name": "AIQS Drop",
+        "left_places": [
+            "Start AIQS Drop",
+            "AGV at AIQS"
+        ],
+        "right_places": [
+            "AIQS Dropping"
+        ]
+    },
+    {
+        "type": "InvisibleStep",
+        "invisible_prefix_step": {
+            "name": "Invisible end AIQS Dropped",
+            "left_places": [
+                "AIQS Dropping"
+            ],
+            "right_places": [
+                "Finish AIQS Drop",
+                "AGV at AIQS"
+            ]
+        },
+        "step": {
+            "name": "AIQS Dropped",
+            "left_places": [
+                "Finish AIQS Drop"
+            ],
+            "right_places": [
+                "Next Module Ready"
+            ]
+        }
+    },
+    {
+        "name": "AIQS Drop Failed",
+        "left_places": [
+            "AIQS Dropping"
+        ],
+        "right_places": [
+            "Order Failed",
+            "AGV at AIQS"
+        ]
+    },
+    {
+        "name": "AIQS Check",
+        "left_places": [
+            "Finish AIQS Pick"
+        ],
+        "right_places": [
+            "AIQS Checking"
+        ]
+    },
+    {
+        "name": "AIQS Checked",
+        "left_places": [
+            "AIQS Checking"
+        ],
+        "right_places": [
+            "Start AIQS Drop"
+        ]
+    },
+    {
+        "name": "AIQS Check Failed",
+        "left_places": [
+            "AIQS Checking"
+        ],
+        "right_places": [
+            "Order Failed"
+        ]
+    }
+]
