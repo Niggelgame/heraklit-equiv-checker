@@ -11,8 +11,8 @@ def parse_test_file(file, tests_dir):
         step_def_file = f.readline().strip()
         step_def_file = os.path.join(tests_dir, step_def_file)
         expected_match = f.readline().strip()
-        run_ref = f.readline().strip().split(" ")
-        run_check = f.readline().strip().split(" ")
+        run_ref = map(lambda a: a.strip(), f.readline().strip().split(","))
+        run_check = map(lambda a: a.strip(), f.readline().strip().split(","))
     return step_def_file, expected_match, run_ref, run_check
 
 

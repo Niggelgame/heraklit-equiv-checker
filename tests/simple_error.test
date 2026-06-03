@@ -1,4 +1,4 @@
 step_defs/simple_steps.json
 error
-A B E
-A C B
+A, B, E
+A, C, B

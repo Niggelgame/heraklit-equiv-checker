@@ -5,12 +5,12 @@
         "right_places": ["on counter"]
     },
     {
-        "name": "supply_to_aide",
+        "name": "supply to aide",
         "left_places": ["on counter", "aide free"],
         "right_places": ["ready to bake", "aide busy"]
     },
     {
-        "name": "move_to_shop",
+        "name": "move to shop",
         "left_places": ["aide busy", "shelf empty"],
         "right_places": ["aide free", "on shelf"]
     },

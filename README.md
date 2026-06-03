@@ -14,11 +14,13 @@ Use [uv](https://docs.astral.sh/uv/getting-started/installation/) to run the scr
 uv run checker.py --step-defs <step_definitions_file> --reference-run <reference_run_file> --checked-run <checked_run_file>
 ```
 
-The checker might output warnings. The last output will be whether there was a match or not, previous output might hint as to why matching failed.
+The last output will be whether there was a match or not, previous output might hint as to why matching failed.
+
+The checker might output warnings (see below, `X` is a placeholder). 
 
 <details>
 
-<summary>Initial step <> is not contained in the reference graph</summary>
+<summary>Initial step X is not contained in the reference graph</summary>
 
 This message before a `no match` means that there was an additional unconnected step that did not appear in the reference run.
 
@@ -28,18 +30,18 @@ This message before a `no match` means that there was an additional unconnected 
 
 <details>
 
-<summary>Step <> is not defined in the step definitions</summary>
+<summary>Step X is not defined in the step definitions</summary>
 
 A run contains a step that has not been defined in the step file definition. 
 
-Step names should not contain any space characters (as they are used to split the run inputs). 
+Make sure to separate step names in your runs by commas.
 
 ---
 
 </details>
 
 <details>
-<summary>Warning: place <> is a left place of step but is not consumed by any step</summary>
+<summary>Warning: place X is a left place of step but is not consumed by any step</summary>
 
 This warning hints at steps that have unconnected left places. This is not concerning if these places can be considered initial places. 
 
@@ -63,12 +65,12 @@ Sample file:
         "right_places": ["on counter"]
     },
     {
-        "name": "supply_to_aide",
+        "name": "supply to aide",
         "left_places": ["on counter", "aide free"],
         "right_places": ["ready to bake", "aide busy"]
     },
     {
-        "name": "move_to_shop",
+        "name": "move to shop",
         "left_places": ["aide busy", "shelf empty"],
         "right_places": ["aide free", "on shelf"]
     },
@@ -82,12 +84,12 @@ Sample file:
 
 ## Run File Format
 
-A run consists on a series of step names, separated by spaces.
+A run consists on a series of step names, separated by commas. Any excessive space characters before/after the step name are trimmed away. 
 
 A run of the previous steps could be
 
 ```
-bake supply_to_aide move_to_shop sell bake supply_to_aide bake move_to_shop sell supply_to_aide move_to_shop sell
+bake, supply to aide, move to shop, sell, bake, supply to aide, bake, move to shop, sell, supply to aide, move to shop, sell
 ```
 
 ## Displaying the extracted run graphs

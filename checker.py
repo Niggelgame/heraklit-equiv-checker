@@ -216,9 +216,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     with open(args.ref_run, "r") as f:
-        ref_run_steps = f.readall().split(" ")
+        ref_run_steps = map(lambda a: a.strip(), f.readall().split(","))
     with open(args.check_run, "r") as f:
-        check_run_steps = f.readall().split(" ")
+        check_run_steps = map(lambda a: a.strip(), f.readall().split(","))
     
     if check_equivalence_step_file(ref_run_steps, check_run_steps, args.steps, display=args.display):
         print("The run is a prefix of the reference run")

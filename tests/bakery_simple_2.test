@@ -1,4 +1,4 @@
 step_defs/bakery_steps.json
 match
-bake supply_to_aide move_to_shop sell bake
-bake supply_to_aide move_to_shop bake sell
+bake, supply to aide, move to shop, sell, bake
+bake, supply to aide, move to shop, bake, sell

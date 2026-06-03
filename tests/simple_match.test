@@ -1,4 +1,4 @@
 step_defs/simple_steps.json
 match
-A B C
-A C B
+A, B, C
+A, C, B

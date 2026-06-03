@@ -1,4 +1,4 @@
 step_defs/simple_steps.json
 no match
-A B C
-A C B D
+A, B, C
+A, C, B, D
