@@ -2,6 +2,9 @@ from collections import defaultdict
 import json
 import argparse
 
+# whether to use backwards composition or the default forward
+USE_BACKWARD_COMPOSITION = False
+
 ### Step class defines a single step in the equivalence checking process.
 class Step:
     def __init__(self, name, left_places, right_places):
@@ -31,6 +34,8 @@ def InvisibleStep(invisible_prefix_step, step):
     for place in step_left_places:
         if not place in invisible_right_places:
             new_left_places.append(place)
+
+    print(f"Built Inv. Step with \n   name: {step.name}\n   left_places: {", ".join(new_left_places)}\n   right_places: {", ".join(new_right_places)}")
 
     return Step(step.name, new_left_places, new_right_places)
 
@@ -85,7 +90,11 @@ def build_graph_from_run(step_names, step_dict):
         # consume as many unused right places as possible, then connect them to the current step
         for place in step.left_places:
             if place in unused_right_places.keys() and len(unused_right_places[place]) > 0:
-                prev_step_index = unused_right_places[place].pop(0)
+                # TODO: reset to first element
+                if USE_BACKWARD_COMPOSITION:
+                    prev_step_index = unused_right_places[place].pop()
+                else:
+                    prev_step_index = unused_right_places[place].pop(0)
                 graph[prev_step_index][1].append(next_graph_index)
                 consumed += 1
             else:
@@ -102,6 +111,8 @@ def build_graph_from_run(step_names, step_dict):
 
         next_graph_index += 1
     
+    if len(initial_steps) > 1:
+        print(f"Warning: {len(initial_steps)} initial steps!")
     for place, step_indices in debug_unused_left_places.items():
         # if there are still unused left places that are not part of the initial steps
         if len(step_indices) > 0 and not all([index in initial_steps for index in step_indices]):
@@ -112,14 +123,20 @@ def build_graph_from_run(step_names, step_dict):
 
     return graph, initial_steps
 
+def interpolate_color_with_a(rgb, index, max_val):
+    pos = int(255 * index/max_val)
+    return rgb + hex(pos)[2:] 
+
 def display_graph(graph):
     # plot the graph using graphviz, with the step names as labels and the edges as arrows
     from graphviz import Digraph
     dot = Digraph()
     dot.attr('node', shape='rect')
     graph, initial_steps = graph
+    graph_size = len(graph)
     for index, (step, next_steps) in graph.items():
-        dot.node(str(index), step.name)
+        color = interpolate_color_with_a("#006400", index, graph_size)
+        dot.node(str(index), step.name + f" {index}", fillcolor=color, style="filled")
         for next_step in next_steps:
             dot.edge(str(index), str(next_step))
     return dot
@@ -216,9 +233,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     with open(args.ref_run, "r") as f:
-        ref_run_steps = map(lambda a: a.strip(), f.readall().split(","))
+        ref_run_steps = map(lambda a: a.strip(), f.read().split(","))
     with open(args.check_run, "r") as f:
-        check_run_steps = map(lambda a: a.strip(), f.readall().split(","))
+        check_run_steps = map(lambda a: a.strip(), f.read().split(","))
     
     if check_equivalence_step_file(ref_run_steps, check_run_steps, args.steps, display=args.display):
         print("The run is a prefix of the reference run")

@@ -270,4 +270,14 @@ print(len(steps))
 print(json.dumps(steps))
 
 
+# output all possible steps
+
+print()
+print("All steps for model")
+
+print(
+    json.dumps(list(map(lambda a: a["name"] if "name" in a.keys() else a["step"]["name"], steps)))
+)
+
 # TODO: Order failed to NEXT_MODULE_READY?
+# step to signify what color?

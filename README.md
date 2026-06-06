@@ -118,3 +118,8 @@ To only run specific tests, run with `--run-only <test_name_element>`, which wil
 
 The functionality is contained in the `checker.py` file, which can be imported and used in other Python code. The main function to use is `check_equivalence_step_file`, which takes the two runs and the path to the step definitions file as an argument and returns whether the first run is a prefix of the second.
 
+## Experimental: Backwards Composition
+
+To allow temporal connection between transitions, a left place tries to merge with the latest right place added to the open right places, instead of the first. Thus transitions try to connect to more recent ones rather than older, potentially invalid transitions.
+
+This can be enabled by changing `USE_BACKWARD_COMPOSITION` to `True` in `checker.py`
