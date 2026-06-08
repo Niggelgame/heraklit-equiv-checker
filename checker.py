@@ -2,8 +2,6 @@ from collections import defaultdict
 import json
 import argparse
 
-# whether to use backwards composition or the default forward
-USE_BACKWARD_COMPOSITION = False
 
 ### Step class defines a single step in the equivalence checking process.
 class Step:
@@ -90,11 +88,9 @@ def build_graph_from_run(step_names, step_dict):
         # consume as many unused right places as possible, then connect them to the current step
         for place in step.left_places:
             if place in unused_right_places.keys() and len(unused_right_places[place]) > 0:
-                # TODO: reset to first element
-                if USE_BACKWARD_COMPOSITION:
-                    prev_step_index = unused_right_places[place].pop()
-                else:
-                    prev_step_index = unused_right_places[place].pop(0)
+                # the latest added elements to our module have the lowest index -> compose with them
+                # thus pop end of list
+                prev_step_index = unused_right_places[place].pop()
                 graph[prev_step_index][1].append(next_graph_index)
                 consumed += 1
             else:
