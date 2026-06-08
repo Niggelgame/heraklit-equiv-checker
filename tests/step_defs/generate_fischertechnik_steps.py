@@ -166,26 +166,27 @@ steps.extend(hbw_steps)
 ###
 # DPS steps
 ###
-dps_pick_start, dps_pick_succ, dps_pick_fail = get_pick_steps("DPS")
-dps_drop_start, dps_drop_succ, dps_drop_fail = get_drop_steps("DPS")
+for color in ["RED", "WHITE", "BLUE"]:
+    dps_pick_start, dps_pick_succ, dps_pick_fail = get_pick_steps(f"DPS {color}")
+    dps_drop_start, dps_drop_succ, dps_drop_fail = get_drop_steps(f"DPS {color}")
 
-# pick and drop can be independently executed
-dps_pick_start = wrap_invisible_module_start(dps_pick_start)
-dps_drop_start = wrap_invisible_module_start(dps_drop_start)
+    # pick and drop can be independently executed
+    dps_pick_start = wrap_invisible_module_start(dps_pick_start)
+    dps_drop_start = wrap_invisible_module_start(dps_drop_start)
 
-dps_pick_succ = wrap_invisible_module_end(dps_pick_succ)
-dps_drop_succ = wrap_invisible_module_end(dps_drop_succ)
+    dps_pick_succ = wrap_invisible_module_end(dps_pick_succ)
+    dps_drop_succ = wrap_invisible_module_end(dps_drop_succ)
 
-dps_steps = [
-    dps_pick_start,
-    dps_pick_succ,
-    dps_pick_fail,
-    dps_drop_start,
-    dps_drop_succ,
-    dps_drop_fail,
-]
+    dps_steps = [
+        dps_pick_start,
+        dps_pick_succ,
+        dps_pick_fail,
+        dps_drop_start,
+        dps_drop_succ,
+        dps_drop_fail,
+    ]
 
-steps.extend(dps_steps)
+    steps.extend(dps_steps)
 
 ###
 # DRILL
