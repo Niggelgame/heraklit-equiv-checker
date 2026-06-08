@@ -295,51 +295,19 @@
                 "Next Module Ready"
             ],
             "right_places": [
-                "Start DPS RED Pick"
+                "Start DPS Pick"
             ]
         },
         "step": {
             "name": "DPS RED Pick",
             "left_places": [
-                "Start DPS RED Pick",
-                "AGV at DPS RED"
+                "Start DPS Pick",
+                "AGV at DPS"
             ],
             "right_places": [
-                "DPS RED Picking"
+                "DPS Picking"
             ]
         }
-    },
-    {
-        "type": "InvisibleStep",
-        "invisible_prefix_step": {
-            "name": "Invisible end DPS RED Picked",
-            "left_places": [
-                "DPS RED Picking"
-            ],
-            "right_places": [
-                "Finish DPS RED Pick",
-                "AGV at DPS RED"
-            ]
-        },
-        "step": {
-            "name": "DPS RED Picked",
-            "left_places": [
-                "Finish DPS RED Pick"
-            ],
-            "right_places": [
-                "Next Module Ready"
-            ]
-        }
-    },
-    {
-        "name": "DPS RED Pick Failed",
-        "left_places": [
-            "DPS RED Picking"
-        ],
-        "right_places": [
-            "Order Failed",
-            "AGV at DPS RED"
-        ]
     },
     {
         "type": "InvisibleStep",
@@ -349,51 +317,19 @@
                 "Next Module Ready"
             ],
             "right_places": [
-                "Start DPS RED Drop"
+                "Start DPS Drop"
             ]
         },
         "step": {
             "name": "DPS RED Drop",
             "left_places": [
-                "Start DPS RED Drop",
-                "AGV at DPS RED"
+                "Start DPS Drop",
+                "AGV at DPS"
             ],
             "right_places": [
-                "DPS RED Dropping"
+                "DPS Dropping"
             ]
         }
-    },
-    {
-        "type": "InvisibleStep",
-        "invisible_prefix_step": {
-            "name": "Invisible end DPS RED Dropped",
-            "left_places": [
-                "DPS RED Dropping"
-            ],
-            "right_places": [
-                "Finish DPS RED Drop",
-                "AGV at DPS RED"
-            ]
-        },
-        "step": {
-            "name": "DPS RED Dropped",
-            "left_places": [
-                "Finish DPS RED Drop"
-            ],
-            "right_places": [
-                "Next Module Ready"
-            ]
-        }
-    },
-    {
-        "name": "DPS RED Drop Failed",
-        "left_places": [
-            "DPS RED Dropping"
-        ],
-        "right_places": [
-            "Order Failed",
-            "AGV at DPS RED"
-        ]
     },
     {
         "type": "InvisibleStep",
@@ -403,51 +339,19 @@
                 "Next Module Ready"
             ],
             "right_places": [
-                "Start DPS WHITE Pick"
+                "Start DPS Pick"
             ]
         },
         "step": {
             "name": "DPS WHITE Pick",
             "left_places": [
-                "Start DPS WHITE Pick",
-                "AGV at DPS WHITE"
+                "Start DPS Pick",
+                "AGV at DPS"
             ],
             "right_places": [
-                "DPS WHITE Picking"
+                "DPS Picking"
             ]
         }
-    },
-    {
-        "type": "InvisibleStep",
-        "invisible_prefix_step": {
-            "name": "Invisible end DPS WHITE Picked",
-            "left_places": [
-                "DPS WHITE Picking"
-            ],
-            "right_places": [
-                "Finish DPS WHITE Pick",
-                "AGV at DPS WHITE"
-            ]
-        },
-        "step": {
-            "name": "DPS WHITE Picked",
-            "left_places": [
-                "Finish DPS WHITE Pick"
-            ],
-            "right_places": [
-                "Next Module Ready"
-            ]
-        }
-    },
-    {
-        "name": "DPS WHITE Pick Failed",
-        "left_places": [
-            "DPS WHITE Picking"
-        ],
-        "right_places": [
-            "Order Failed",
-            "AGV at DPS WHITE"
-        ]
     },
     {
         "type": "InvisibleStep",
@@ -457,51 +361,19 @@
                 "Next Module Ready"
             ],
             "right_places": [
-                "Start DPS WHITE Drop"
+                "Start DPS Drop"
             ]
         },
         "step": {
             "name": "DPS WHITE Drop",
             "left_places": [
-                "Start DPS WHITE Drop",
-                "AGV at DPS WHITE"
+                "Start DPS Drop",
+                "AGV at DPS"
             ],
             "right_places": [
-                "DPS WHITE Dropping"
+                "DPS Dropping"
             ]
         }
-    },
-    {
-        "type": "InvisibleStep",
-        "invisible_prefix_step": {
-            "name": "Invisible end DPS WHITE Dropped",
-            "left_places": [
-                "DPS WHITE Dropping"
-            ],
-            "right_places": [
-                "Finish DPS WHITE Drop",
-                "AGV at DPS WHITE"
-            ]
-        },
-        "step": {
-            "name": "DPS WHITE Dropped",
-            "left_places": [
-                "Finish DPS WHITE Drop"
-            ],
-            "right_places": [
-                "Next Module Ready"
-            ]
-        }
-    },
-    {
-        "name": "DPS WHITE Drop Failed",
-        "left_places": [
-            "DPS WHITE Dropping"
-        ],
-        "right_places": [
-            "Order Failed",
-            "AGV at DPS WHITE"
-        ]
     },
     {
         "type": "InvisibleStep",
@@ -511,51 +383,19 @@
                 "Next Module Ready"
             ],
             "right_places": [
-                "Start DPS BLUE Pick"
+                "Start DPS Pick"
             ]
         },
         "step": {
             "name": "DPS BLUE Pick",
             "left_places": [
-                "Start DPS BLUE Pick",
-                "AGV at DPS BLUE"
+                "Start DPS Pick",
+                "AGV at DPS"
             ],
             "right_places": [
-                "DPS BLUE Picking"
+                "DPS Picking"
             ]
         }
-    },
-    {
-        "type": "InvisibleStep",
-        "invisible_prefix_step": {
-            "name": "Invisible end DPS BLUE Picked",
-            "left_places": [
-                "DPS BLUE Picking"
-            ],
-            "right_places": [
-                "Finish DPS BLUE Pick",
-                "AGV at DPS BLUE"
-            ]
-        },
-        "step": {
-            "name": "DPS BLUE Picked",
-            "left_places": [
-                "Finish DPS BLUE Pick"
-            ],
-            "right_places": [
-                "Next Module Ready"
-            ]
-        }
-    },
-    {
-        "name": "DPS BLUE Pick Failed",
-        "left_places": [
-            "DPS BLUE Picking"
-        ],
-        "right_places": [
-            "Order Failed",
-            "AGV at DPS BLUE"
-        ]
     },
     {
         "type": "InvisibleStep",
@@ -565,36 +405,36 @@
                 "Next Module Ready"
             ],
             "right_places": [
-                "Start DPS BLUE Drop"
+                "Start DPS Drop"
             ]
         },
         "step": {
             "name": "DPS BLUE Drop",
             "left_places": [
-                "Start DPS BLUE Drop",
-                "AGV at DPS BLUE"
+                "Start DPS Drop",
+                "AGV at DPS"
             ],
             "right_places": [
-                "DPS BLUE Dropping"
+                "DPS Dropping"
             ]
         }
     },
     {
         "type": "InvisibleStep",
         "invisible_prefix_step": {
-            "name": "Invisible end DPS BLUE Dropped",
+            "name": "Invisible end DPS Picked",
             "left_places": [
-                "DPS BLUE Dropping"
+                "DPS Picking"
             ],
             "right_places": [
-                "Finish DPS BLUE Drop",
-                "AGV at DPS BLUE"
+                "Finish DPS Pick",
+                "AGV at DPS"
             ]
         },
         "step": {
-            "name": "DPS BLUE Dropped",
+            "name": "DPS Picked",
             "left_places": [
-                "Finish DPS BLUE Drop"
+                "Finish DPS Pick"
             ],
             "right_places": [
                 "Next Module Ready"
@@ -602,13 +442,45 @@
         }
     },
     {
-        "name": "DPS BLUE Drop Failed",
+        "name": "DPS Pick Failed",
         "left_places": [
-            "DPS BLUE Dropping"
+            "DPS Picking"
         ],
         "right_places": [
             "Order Failed",
-            "AGV at DPS BLUE"
+            "AGV at DPS"
+        ]
+    },
+    {
+        "type": "InvisibleStep",
+        "invisible_prefix_step": {
+            "name": "Invisible end DPS Dropped",
+            "left_places": [
+                "DPS Dropping"
+            ],
+            "right_places": [
+                "Finish DPS Drop",
+                "AGV at DPS"
+            ]
+        },
+        "step": {
+            "name": "DPS Dropped",
+            "left_places": [
+                "Finish DPS Drop"
+            ],
+            "right_places": [
+                "Next Module Ready"
+            ]
+        }
+    },
+    {
+        "name": "DPS Drop Failed",
+        "left_places": [
+            "DPS Dropping"
+        ],
+        "right_places": [
+            "Order Failed",
+            "AGV at DPS"
         ]
     },
     {
