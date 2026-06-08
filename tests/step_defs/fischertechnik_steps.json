@@ -290,7 +290,7 @@
     {
         "type": "InvisibleStep",
         "invisible_prefix_step": {
-            "name": "Invisible start DPS RED Pick",
+            "name": "Invisible start DPS Pick",
             "left_places": [
                 "Next Module Ready"
             ],
@@ -299,123 +299,13 @@
             ]
         },
         "step": {
-            "name": "DPS RED Pick",
+            "name": "DPS Pick",
             "left_places": [
                 "Start DPS Pick",
                 "AGV at DPS"
             ],
             "right_places": [
                 "DPS Picking"
-            ]
-        }
-    },
-    {
-        "type": "InvisibleStep",
-        "invisible_prefix_step": {
-            "name": "Invisible start DPS RED Drop",
-            "left_places": [
-                "Next Module Ready"
-            ],
-            "right_places": [
-                "Start DPS Drop"
-            ]
-        },
-        "step": {
-            "name": "DPS RED Drop",
-            "left_places": [
-                "Start DPS Drop",
-                "AGV at DPS"
-            ],
-            "right_places": [
-                "DPS Dropping"
-            ]
-        }
-    },
-    {
-        "type": "InvisibleStep",
-        "invisible_prefix_step": {
-            "name": "Invisible start DPS WHITE Pick",
-            "left_places": [
-                "Next Module Ready"
-            ],
-            "right_places": [
-                "Start DPS Pick"
-            ]
-        },
-        "step": {
-            "name": "DPS WHITE Pick",
-            "left_places": [
-                "Start DPS Pick",
-                "AGV at DPS"
-            ],
-            "right_places": [
-                "DPS Picking"
-            ]
-        }
-    },
-    {
-        "type": "InvisibleStep",
-        "invisible_prefix_step": {
-            "name": "Invisible start DPS WHITE Drop",
-            "left_places": [
-                "Next Module Ready"
-            ],
-            "right_places": [
-                "Start DPS Drop"
-            ]
-        },
-        "step": {
-            "name": "DPS WHITE Drop",
-            "left_places": [
-                "Start DPS Drop",
-                "AGV at DPS"
-            ],
-            "right_places": [
-                "DPS Dropping"
-            ]
-        }
-    },
-    {
-        "type": "InvisibleStep",
-        "invisible_prefix_step": {
-            "name": "Invisible start DPS BLUE Pick",
-            "left_places": [
-                "Next Module Ready"
-            ],
-            "right_places": [
-                "Start DPS Pick"
-            ]
-        },
-        "step": {
-            "name": "DPS BLUE Pick",
-            "left_places": [
-                "Start DPS Pick",
-                "AGV at DPS"
-            ],
-            "right_places": [
-                "DPS Picking"
-            ]
-        }
-    },
-    {
-        "type": "InvisibleStep",
-        "invisible_prefix_step": {
-            "name": "Invisible start DPS BLUE Drop",
-            "left_places": [
-                "Next Module Ready"
-            ],
-            "right_places": [
-                "Start DPS Drop"
-            ]
-        },
-        "step": {
-            "name": "DPS BLUE Drop",
-            "left_places": [
-                "Start DPS Drop",
-                "AGV at DPS"
-            ],
-            "right_places": [
-                "DPS Dropping"
             ]
         }
     },
@@ -450,6 +340,28 @@
             "Order Failed",
             "AGV at DPS"
         ]
+    },
+    {
+        "type": "InvisibleStep",
+        "invisible_prefix_step": {
+            "name": "Invisible start DPS Drop",
+            "left_places": [
+                "Next Module Ready"
+            ],
+            "right_places": [
+                "Start DPS Drop"
+            ]
+        },
+        "step": {
+            "name": "DPS Drop",
+            "left_places": [
+                "Start DPS Drop",
+                "AGV at DPS"
+            ],
+            "right_places": [
+                "DPS Dropping"
+            ]
+        }
     },
     {
         "type": "InvisibleStep",
