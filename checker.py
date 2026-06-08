@@ -148,7 +148,7 @@ def print_graph(graph):
         print(f"Initial step:  {graph[initial_step][0].name}")
 
 # steps of the same name are the same, so no further checks necessary
-def is_subgraph(graph1, graph2):
+def is_subgraph(graph1, graph2, enable_warnings=True):
     graph1, initial_steps1 = graph1
     initial_steps1 = list(initial_steps1)
     graph2, initial_steps2 = graph2
@@ -168,7 +168,8 @@ def is_subgraph(graph1, graph2):
                 break
         else: 
             # executed if no break was executed
-            print(f"Initial step {step_name} is not contained in the reference graph")
+            if enable_warnings:
+                print(f"Initial step {step_name} is not contained in the reference graph")
             return False
 
     # for (step1, step2) in further_checks:
@@ -198,7 +199,8 @@ def is_subgraph(graph1, graph2):
                     break
             else: 
                 # executed if no break was executed
-                print(f"Step {next_step_name1} is not contained in the reference graph after step {step1.name}")
+                if enable_warnings:
+                    print(f"Step {next_step_name1} is not contained in the reference graph after step {step1.name}")
 
                 # print(f"\nRef graph next steps: {[graph2[next_step][0].name for next_step in next_steps2]}")
                 # print(f"Check graph next steps: {[graph1[next_step][0].name for next_step in next_steps1]}")
@@ -215,7 +217,7 @@ def check_equivalence(ref_run_steps, check_run_steps, step_dict, display=False, 
         display_graph(graph1).render("check_graph", format="png")
         display_graph(graph2).render("reference_graph", format="png")
 
-    return is_subgraph(graph1, graph2)
+    return is_subgraph(graph1, graph2, enable_warnings=enable_warnings)
 
 def check_equivalence_step_file(ref_run_steps, check_run_steps, step_file, display=False, enable_warnings=True):
     step_dict = step_list_to_dict(parse_steps_from_file(step_file))
