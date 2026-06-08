@@ -68,7 +68,7 @@ def step_list_to_dict(step_list):
 ### 3.  Check whether the second graph is a subgraph of the first graph, i.e. whether all steps in the second graph are also in the first graph, and whether all edges in the second graph are also in the first graph
 
 
-def build_graph_from_run(step_names, step_dict):
+def build_graph_from_run(step_names, step_dict, enable_warnings=True):
     # build graph -> probably sparse, use dict of lists
     next_graph_index = 0
     graph = defaultdict(list) # map of index to tuple(step, list of next step indicees)
@@ -108,11 +108,13 @@ def build_graph_from_run(step_names, step_dict):
         next_graph_index += 1
     
     if len(initial_steps) > 1:
-        print(f"Warning: {len(initial_steps)} initial steps!")
+        if enable_warnings:
+            print(f"Warning: {len(initial_steps)} initial steps!")
     for place, step_indices in debug_unused_left_places.items():
         # if there are still unused left places that are not part of the initial steps
         if len(step_indices) > 0 and not all([index in initial_steps for index in step_indices]):
-            print(f"Warning: place {place} is a left place of steps {list(map(lambda x: graph[x][0].name, step_indices))} but is not consumed by any step")
+            if enable_warnings:
+                print(f"Warning: place {place} is a left place of steps {list(map(lambda x: graph[x][0].name, step_indices))} but is not consumed by any step")
 
     # we assume that every initial step is a unique step, i.e. that there are no two initial steps with the same name
     assert len(set([graph[index][0].name for index in initial_steps])) == len(initial_steps), "There are multiple initial steps with the same name, this is not supported"
@@ -205,9 +207,9 @@ def is_subgraph(graph1, graph2):
     return True
 
 
-def check_equivalence(ref_run_steps, check_run_steps, step_dict, display=False):
-    graph2 = build_graph_from_run(ref_run_steps, step_dict)
-    graph1 = build_graph_from_run(check_run_steps, step_dict)
+def check_equivalence(ref_run_steps, check_run_steps, step_dict, display=False, enable_warnings=True):
+    graph2 = build_graph_from_run(ref_run_steps, step_dict, enable_warnings=enable_warnings)
+    graph1 = build_graph_from_run(check_run_steps, step_dict, enable_warnings=enable_warnings)
 
     if display:
         display_graph(graph1).render("check_graph", format="png")
@@ -215,9 +217,9 @@ def check_equivalence(ref_run_steps, check_run_steps, step_dict, display=False):
 
     return is_subgraph(graph1, graph2)
 
-def check_equivalence_step_file(ref_run_steps, check_run_steps, step_file, display=False):
+def check_equivalence_step_file(ref_run_steps, check_run_steps, step_file, display=False, enable_warnings=True):
     step_dict = step_list_to_dict(parse_steps_from_file(step_file))
-    return check_equivalence(ref_run_steps, check_run_steps, step_dict, display)
+    return check_equivalence(ref_run_steps, check_run_steps, step_dict, display, enable_warnings=enable_warnings)
 
 if __name__ == "__main__":
     # use argparse to get the file paths of the two runs and the file path of the step defs
