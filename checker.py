@@ -33,7 +33,7 @@ def InvisibleStep(invisible_prefix_step, step):
         if not place in invisible_right_places:
             new_left_places.append(place)
 
-    print(f"Built Inv. Step with \n   name: {step.name}\n   left_places: {", ".join(new_left_places)}\n   right_places: {", ".join(new_right_places)}")
+    # print(f"Built Inv. Step with \n   name: {step.name}\n   left_places: {", ".join(new_left_places)}\n   right_places: {", ".join(new_right_places)}")
 
     return Step(step.name, new_left_places, new_right_places)
 
